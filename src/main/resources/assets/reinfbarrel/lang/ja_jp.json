@@ -1,0 +1,7 @@
+{
+  "stat.reinfbarrel.open_copper_barrel": "銅の樽を開いた回数",
+  "stat.reinfbarrel.open_iron_barrel": "鉄の樽を開いた回数",
+  "stat.reinfbarrel.open_gold_barrel": "金の樽を開いた回数",
+  "stat.reinfbarrel.open_diamond_barrel": "ダイヤモンドの樽を開いた回数",
+  "stat.reinfbarrel.open_netherite_barrel": "ネザライトの樽を開いた回数"
+}

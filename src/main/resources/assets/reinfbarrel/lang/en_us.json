@@ -1,0 +1,7 @@
+{
+  "stat.reinfbarrel.open_copper_barrel": "Copper Barrels Opened",
+  "stat.reinfbarrel.open_iron_barrel": "Iron Barrels Opened",
+  "stat.reinfbarrel.open_gold_barrel": "Gold Barrels Opened",
+  "stat.reinfbarrel.open_diamond_barrel": "Diamond Barrels Opened",
+  "stat.reinfbarrel.open_netherite_barrel": "Netherite Barrels Opened"
+}
