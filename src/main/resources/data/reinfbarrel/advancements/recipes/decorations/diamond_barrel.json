@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "reinfbarrel:diamond_barrel"
+    ]
+  },
+  "criteria": {
+    "has_gold_barrel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "reinfbarrel:gold_barrel"
+            ]
+          }
+        ]
+      }
+    },
+    "has_diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "reinfbarrel:diamond_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gold_barrel",
+      "has_diamond",
+      "has_the_recipe"
+    ]
+  ]
+}
