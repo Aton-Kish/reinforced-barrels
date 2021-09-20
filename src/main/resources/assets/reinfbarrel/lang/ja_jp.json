@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "銅の樽",
+  "container.reinfbarrel.ironBarrel": "鉄の樽",
+  "container.reinfbarrel.goldBarrel": "金の樽",
+  "container.reinfbarrel.diamondBarrel": "ダイヤモンドの樽",
+  "container.reinfbarrel.netheriteBarrel": "ネザライトの樽",
+  "block.reinfbarrel.copper_barrel": "銅の樽",
+  "block.reinfbarrel.iron_barrel": "鉄の樽",
+  "block.reinfbarrel.gold_barrel": "金の樽",
+  "block.reinfbarrel.diamond_barrel": "ダイヤモンドの樽",
+  "block.reinfbarrel.netherite_barrel": "ネザライトの樽",
+  "stat.reinfbarrel.open_copper_barrel": "銅の樽を開いた回数",
+  "stat.reinfbarrel.open_iron_barrel": "鉄の樽を開いた回数",
+  "stat.reinfbarrel.open_gold_barrel": "金の樽を開いた回数",
+  "stat.reinfbarrel.open_diamond_barrel": "ダイヤモンドの樽を開いた回数",
+  "stat.reinfbarrel.open_netherite_barrel": "ネザライトの樽を開いた回数"
+}

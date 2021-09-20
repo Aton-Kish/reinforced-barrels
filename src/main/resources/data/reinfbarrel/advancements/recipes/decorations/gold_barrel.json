@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "reinfbarrel:gold_barrel"
+    ]
+  },
+  "criteria": {
+    "has_iron_barrel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "reinfbarrel:iron_barrel"
+            ]
+          }
+        ]
+      }
+    },
+    "has_gold_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "reinfbarrel:gold_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_barrel",
+      "has_gold_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}
