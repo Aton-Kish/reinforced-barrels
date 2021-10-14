@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "Barril de cobre",
+  "container.reinfbarrel.ironBarrel": "Barril de ferro",
+  "container.reinfbarrel.goldBarrel": "Barril de ouro",
+  "container.reinfbarrel.diamondBarrel": "Barril de diamante",
+  "container.reinfbarrel.netheriteBarrel": "Barril de netherita",
+  "block.reinfbarrel.copper_barrel": "Barril de cobre",
+  "block.reinfbarrel.iron_barrel": "Barril de ferro",
+  "block.reinfbarrel.gold_barrel": "Barril de ouro",
+  "block.reinfbarrel.diamond_barrel": "Barril de diamante",
+  "block.reinfbarrel.netherite_barrel": "Barril de netherita",
+  "stat.reinfbarrel.open_copper_barrel": "Barris de cobre abertos",
+  "stat.reinfbarrel.open_iron_barrel": "Barris de ferro abertos",
+  "stat.reinfbarrel.open_gold_barrel": "Barris de ouro abertos",
+  "stat.reinfbarrel.open_diamond_barrel": "Barris de diamante abertos",
+  "stat.reinfbarrel.open_netherite_barrel": "Barris de netherita abertos"
+}
