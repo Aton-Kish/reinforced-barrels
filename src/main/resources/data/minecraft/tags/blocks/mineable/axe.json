@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reinfbarrel:copper_barrel",
+    "reinfbarrel:iron_barrel",
+    "reinfbarrel:gold_barrel",
+    "reinfbarrel:diamond_barrel",
+    "reinfbarrel:netherite_barrel"
+  ]
+}
