@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "铜桶",
+  "container.reinfbarrel.ironBarrel": "铁桶",
+  "container.reinfbarrel.goldBarrel": "金桶",
+  "container.reinfbarrel.diamondBarrel": "钻石桶",
+  "container.reinfbarrel.netheriteBarrel": "下界合金桶",
+  "block.reinfbarrel.copper_barrel": "铜桶",
+  "block.reinfbarrel.iron_barrel": "铁桶",
+  "block.reinfbarrel.gold_barrel": "金桶",
+  "block.reinfbarrel.diamond_barrel": "钻石桶",
+  "block.reinfbarrel.netherite_barrel": "下界合金桶",
+  "stat.reinfbarrel.open_copper_barrel": "铜桶打开次数",
+  "stat.reinfbarrel.open_iron_barrel": "铁桶打开次数",
+  "stat.reinfbarrel.open_gold_barrel": "金桶打开次数",
+  "stat.reinfbarrel.open_diamond_barrel": "钻石桶打开次数",
+  "stat.reinfbarrel.open_netherite_barrel": "下界合金桶打开次数"
+}
