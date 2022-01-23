@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import atonkish.reinfcore.api.ReinforcedCoreModInitializer;
 import atonkish.reinfcore.api.ReinforcedCoreRegistry;
 import atonkish.reinfcore.util.ReinforcingMaterial;
-import atonkish.reinfbarrel.item.ModItems;
 import atonkish.reinfbarrel.util.ReinforcingMaterialSettings;
 
 public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
@@ -17,9 +16,6 @@ public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
 	public void onInitializeReinforcedCore() {
 		// init Reinforced Core
 		initializeReinforcedCore();
-
-		// Items
-		ModItems.init();
 	}
 
 	private static void initializeReinforcedCore() {
