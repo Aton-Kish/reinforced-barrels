@@ -9,7 +9,6 @@ import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.block.ModBlocks;
 import atonkish.reinfbarrel.block.entity.ModBlockEntityType;
 import atonkish.reinfbarrel.item.ModItems;
-import atonkish.reinfbarrel.stat.ModStats;
 import atonkish.reinfbarrel.util.ReinforcingMaterialSettings;
 
 public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
@@ -20,9 +19,6 @@ public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
 	public void onInitializeReinforcedCore() {
 		// init Reinforced Core
 		initializeReinforcedCore();
-
-		// Stats
-		ModStats.init();
 
 		// Blocks
 		ModBlocks.init();
