@@ -47,21 +47,21 @@ public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
 			ReinforcingMaterial material = materialSettings.getMaterial();
 
 			// Stats
-			ReinforcedBarrelsRegistry.registerMaterialOpenStat(material);
+			ReinforcedBarrelsRegistry.registerMaterialOpenStat(MOD_ID, material);
 
 			// Blocks
-			ReinforcedBarrelsRegistry.registerMaterialBlock(material, materialSettings.getBlockSettings());
-			ReinforcedBarrelsRegistry.registerMaterialBlockEntityType(material);
+			ReinforcedBarrelsRegistry.registerMaterialBlock(MOD_ID, material, materialSettings.getBlockSettings());
+			ReinforcedBarrelsRegistry.registerMaterialBlockEntityType(MOD_ID, material);
 
 			// Items
-			ReinforcedBarrelsRegistry.registerMaterialItem(material, materialSettings.getItemSettings());
+			ReinforcedBarrelsRegistry.registerMaterialItem(MOD_ID, material, materialSettings.getItemSettings());
 		}
 
 		// Item Group Icon
 		if (!(FabricLoader.getInstance().isModLoaded("reinfshulker")
 				|| FabricLoader.getInstance().isModLoaded("reinfchest"))) {
 			ReinforcedBarrelsRegistry
-					.registerMaterialItemGroupIcon(ReinforcingMaterialSettings.NETHERITE.getMaterial());
+					.registerMaterialItemGroupIcon(MOD_ID, ReinforcingMaterialSettings.NETHERITE.getMaterial());
 		}
 	}
 }

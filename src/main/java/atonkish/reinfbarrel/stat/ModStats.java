@@ -8,22 +8,21 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
-import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 
 public class ModStats {
     public static final LinkedHashMap<ReinforcingMaterial, Identifier> OPEN_REINFORCED_BARREL_MAP = new LinkedHashMap<>();
 
-    public static Identifier registerMaterialOpen(ReinforcingMaterial material) {
+    public static Identifier registerMaterialOpen(String namespace, ReinforcingMaterial material) {
         String id = "open_" + material.getName() + "_barrel";
-        Identifier identifier = register(id, StatFormatter.DEFAULT);
+        Identifier identifier = register(namespace, id, StatFormatter.DEFAULT);
 
         OPEN_REINFORCED_BARREL_MAP.put(material, identifier);
 
         return identifier;
     }
 
-    private static Identifier register(String id, StatFormatter formatter) {
-        Identifier identifier = new Identifier(ReinforcedBarrelsMod.MOD_ID, id);
+    private static Identifier register(String namespace, String id, StatFormatter formatter) {
+        Identifier identifier = new Identifier(namespace, id);
         Registry.register(Registry.CUSTOM_STAT, id, identifier);
         Stats.CUSTOM.getOrCreateStat(identifier, formatter);
         return identifier;

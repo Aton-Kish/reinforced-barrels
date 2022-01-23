@@ -4,6 +4,7 @@ import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BarrelBlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -23,7 +24,6 @@ import net.minecraft.world.World;
 
 import atonkish.reinfcore.screen.ReinforcedStorageScreenHandler;
 import atonkish.reinfcore.util.ReinforcingMaterial;
-import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 
 public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
     private final ViewerCountManager stateManager;
@@ -65,8 +65,8 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
     }
 
     protected Text getContainerName() {
-        return new TranslatableText(
-                "container." + ReinforcedBarrelsMod.MOD_ID + "." + this.cachedMaterial.getName() + "Barrel");
+        String namespace = BlockEntityType.getId(this.getType()).getNamespace();
+        return new TranslatableText("container." + namespace + "." + this.cachedMaterial.getName() + "Barrel");
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
