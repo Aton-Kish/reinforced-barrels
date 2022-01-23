@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
+import atonkish.reinfcore.util.ReinforcingMaterials;
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.block.ModBlocks;
 
@@ -33,7 +34,7 @@ public class ModBlockEntityType {
 
     static {
         REINFORCED_BARREL_MAP = new HashMap<>();
-        for (ReinforcingMaterial material : ReinforcingMaterial.values()) {
+        for (ReinforcingMaterial material : ReinforcingMaterials.MAP.values()) {
             BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = create(material.getName() + "_barrel",
                     FabricBlockEntityTypeBuilder.create(createBlockEntityTypeFactory(material),
                             ModBlocks.REINFORCED_BARREL_MAP.get(material)));

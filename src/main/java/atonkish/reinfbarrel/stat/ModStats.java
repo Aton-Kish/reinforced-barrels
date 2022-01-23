@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
+import atonkish.reinfcore.util.ReinforcingMaterials;
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 
 public class ModStats {
@@ -25,7 +26,7 @@ public class ModStats {
 
     static {
         OPEN_REINFORCED_BARREL_MAP = new HashMap<>();
-        for (ReinforcingMaterial material : ReinforcingMaterial.values()) {
+        for (ReinforcingMaterial material : ReinforcingMaterials.MAP.values()) {
             Identifier identifier = register("open_" + material.getName() + "_barrel", StatFormatter.DEFAULT);
             OPEN_REINFORCED_BARREL_MAP.put(material, identifier);
         }
