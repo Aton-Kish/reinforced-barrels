@@ -1,6 +1,7 @@
 package atonkish.reinfbarrel.block.entity;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.BlockState;
@@ -13,19 +14,20 @@ import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.block.ModBlocks;
 
 public class ModBlockEntityType {
-    public static final LinkedHashMap<ReinforcingMaterial, BlockEntityType<ReinforcedBarrelBlockEntity>> REINFORCED_BARREL_MAP = new LinkedHashMap<>();
+    public static final Map<ReinforcingMaterial, BlockEntityType<ReinforcedBarrelBlockEntity>> REINFORCED_BARREL_MAP = new LinkedHashMap<>();
 
     public static BlockEntityType<ReinforcedBarrelBlockEntity> registerMaterial(String namespace,
             ReinforcingMaterial material) {
-        String id = material.getName() + "_barrel";
-        FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder = FabricBlockEntityTypeBuilder.create(
-                createBlockEntityTypeFactory(material),
-                ModBlocks.REINFORCED_BARREL_MAP.get(material));
-        BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = create(namespace, id, builder);
+        if (!REINFORCED_BARREL_MAP.containsKey(material)) {
+            String id = material.getName() + "_barrel";
+            FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder = FabricBlockEntityTypeBuilder.create(
+                    createBlockEntityTypeFactory(material),
+                    ModBlocks.REINFORCED_BARREL_MAP.get(material));
+            BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = create(namespace, id, builder);
+            REINFORCED_BARREL_MAP.put(material, blockEntityType);
+        }
 
-        REINFORCED_BARREL_MAP.put(material, blockEntityType);
-
-        return blockEntityType;
+        return REINFORCED_BARREL_MAP.get(material);
     }
 
     private static BlockEntityType<ReinforcedBarrelBlockEntity> create(String namespace, String id,

@@ -1,6 +1,7 @@
 package atonkish.reinfbarrel.item;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -14,19 +15,22 @@ import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.block.ModBlocks;
 
 public class ModItems {
-    public static final LinkedHashMap<ReinforcingMaterial, Item> REINFORCED_BARREL_MAP = new LinkedHashMap<>();
-    public static final LinkedHashMap<ReinforcingMaterial, Item.Settings> REINFORCED_BARREL_SETTINGS_MAP = new LinkedHashMap<>();
+    public static final Map<ReinforcingMaterial, Item> REINFORCED_BARREL_MAP = new LinkedHashMap<>();
+    public static final Map<ReinforcingMaterial, Item.Settings> REINFORCED_BARREL_SETTINGS_MAP = new LinkedHashMap<>();
 
     public static Item registerMaterial(ReinforcingMaterial material, Item.Settings settings) {
-        REINFORCED_BARREL_SETTINGS_MAP.put(material, settings);
+        if (!REINFORCED_BARREL_SETTINGS_MAP.containsKey(material)) {
+            REINFORCED_BARREL_SETTINGS_MAP.put(material, settings);
+        }
 
-        Item item = register(
-                new BlockItem(ModBlocks.REINFORCED_BARREL_MAP.get(material),
-                        REINFORCED_BARREL_SETTINGS_MAP.get(material)));
+        if (!REINFORCED_BARREL_MAP.containsKey(material)) {
+            Item item = register(
+                    new BlockItem(ModBlocks.REINFORCED_BARREL_MAP.get(material),
+                            REINFORCED_BARREL_SETTINGS_MAP.get(material)));
+            REINFORCED_BARREL_MAP.put(material, item);
+        }
 
-        REINFORCED_BARREL_MAP.put(material, item);
-
-        return item;
+        return REINFORCED_BARREL_MAP.get(material);
     }
 
     public static void registerMaterialItemGroupIcon(ReinforcingMaterial material) {
