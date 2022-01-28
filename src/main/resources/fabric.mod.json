@@ -16,10 +16,10 @@
   "icon": "assets/reinfbarrel/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "reinfcore": [
       "atonkish.reinfbarrel.ReinforcedBarrelsMod"
     ],
-    "client": [
+    "reinfcoreclient": [
       "atonkish.reinfbarrel.ReinforcedBarrelsClientMod"
     ]
   },
