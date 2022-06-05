@@ -1,9 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "rewards": {
-    "recipes": [
-      "reinfbarrel:netherite_barrel_smithing"
-    ]
+    "recipes": ["reinfbarrel:netherite_barrel_smithing"]
   },
   "criteria": {
     "has_diamond_barrel": {
@@ -11,9 +9,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "reinfbarrel:diamond_barrel"
-            ]
+            "items": ["reinfbarrel:diamond_barrel"]
           }
         ]
       }
@@ -23,9 +19,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_ingot"
-            ]
+            "items": ["minecraft:netherite_ingot"]
           }
         ]
       }
@@ -38,10 +32,6 @@
     }
   },
   "requirements": [
-    [
-      "has_diamond_barrel",
-      "has_netherite_ingot",
-      "has_the_recipe"
-    ]
+    ["has_diamond_barrel", "has_netherite_ingot", "has_the_recipe"]
   ]
 }
