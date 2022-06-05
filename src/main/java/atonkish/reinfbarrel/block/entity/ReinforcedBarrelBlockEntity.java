@@ -15,7 +15,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -66,7 +65,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     protected Text getContainerName() {
         String namespace = BlockEntityType.getId(this.getType()).getNamespace();
-        return new TranslatableText("container." + namespace + "." + this.cachedMaterial.getName() + "Barrel");
+        return Text.translatable("container." + namespace + "." + this.cachedMaterial.getName() + "Barrel");
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
