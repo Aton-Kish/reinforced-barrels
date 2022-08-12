@@ -27,6 +27,34 @@ The Reinforced Barrels mod adds reinforced barrels.
 | Diamond Barrel   | Shaped Crafting | Gold Barrel + Diamond            | <img alt="Diamond Barrel Recipe" src="./images/recipes/diamond_barrel.png" width="256" />              | A diamond barrels has a container inventory with 108 slots.                                             |
 | Netherite Barrel | Smithing        | Diamond Barrel + Netherite Ingot | <img alt="Netherite Barrel Recipe" src="./images/recipes/netherite_barrel_smithing.png" width="256" /> | A netherite barrel has a container inventory with 108 slots. This is resistant to blast, fire and lava. |
 
+## Configure
+
+[The Reinforced Core lib](https://github.com/Aton-Kish/reinforced-core) has been integrated with [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) since version 3.0.0.
+
+![Mod Menu](./images/modmenu/modmenu.png)
+
+### Screen Type
+
+_Available in Reinforced Barrels mod version 2.2.0+._
+
+Screen type is `SINGLE` or `SCROLL`. (default: `SINGLE`)
+
+| `SINGLE` screen                               | `SCROLL` screen                                |
+| --------------------------------------------- | ---------------------------------------------- |
+| ![Single Screen](./images/modmenu/single.png) | ![Scroll Screen](./images/modmenu/scroll6.png) |
+
+### Scroll Screen
+
+#### Rows
+
+_Available in Reinforced Barrels mod version 2.2.0+._
+
+Rows is an integer in the range from `6` to `9`. (default: `6`)
+
+| Rows: `6`                                              | Rows: `9`                                              |
+| ------------------------------------------------------ | ------------------------------------------------------ |
+| ![Scroll Screen: 6 rows](./images/modmenu/scroll6.png) | ![Scroll Screen: 9 rows](./images/modmenu/scroll9.png) |
+
 ## License
 
 The Reinforced Barrels mod is licensed under the MIT License, see [LICENSE](./LICENSE).
