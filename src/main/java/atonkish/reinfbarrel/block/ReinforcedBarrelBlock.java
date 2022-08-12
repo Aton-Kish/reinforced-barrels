@@ -27,6 +27,7 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
         this.material = material;
     }
 
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
             BlockHitResult hit) {
         if (world.isClient) {
@@ -43,6 +44,7 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
         }
     }
 
+    @Override
     @Nullable
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ReinforcedBarrelBlockEntity(this.material, pos, state);

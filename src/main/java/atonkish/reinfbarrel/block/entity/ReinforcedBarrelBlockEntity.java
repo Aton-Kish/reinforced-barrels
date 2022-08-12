@@ -59,20 +59,24 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
         this.cachedMaterial = material;
     }
 
+    @Override
     public int size() {
         return this.cachedMaterial.getSize();
     }
 
+    @Override
     protected Text getContainerName() {
         String namespace = BlockEntityType.getId(this.getType()).getNamespace();
         return Text.translatable("container." + namespace + "." + this.cachedMaterial.getName() + "Barrel");
     }
 
+    @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return ReinforcedStorageScreenHandler.createSingleBlockScreen(this.cachedMaterial, syncId, playerInventory,
                 this);
     }
 
+    @Override
     public void onOpen(PlayerEntity player) {
         if (!this.removed && !player.isSpectator()) {
             this.stateManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
@@ -80,6 +84,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     }
 
+    @Override
     public void onClose(PlayerEntity player) {
         if (!this.removed && !player.isSpectator()) {
             this.stateManager.closeContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
@@ -87,6 +92,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     }
 
+    @Override
     public void tick() {
         if (!this.removed) {
             this.stateManager.updateViewerCount(this.getWorld(), this.getPos(), this.getCachedState());
