@@ -1,0 +1,6 @@
+accessWidener v1 named
+
+# NOTE: Mixin accessor for Record class does not work well
+#       It seems to need to use access widener
+accessible field net/minecraft/world/poi/PointOfInterestType blockStates Ljava/util/Set;
+mutable field net/minecraft/world/poi/PointOfInterestType blockStates Ljava/util/Set;

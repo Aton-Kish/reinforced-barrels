@@ -47,6 +47,10 @@ dependencies {
 	include "atonkish.reinfcore:reinforced-core:${project.reinforced_core_version}"
 }
 
+loom {
+	accessWidenerPath = file("src/main/resources/reinfbarrel.accesswidener")
+}
+
 processResources {
 	inputs.property "version", project.version
 
