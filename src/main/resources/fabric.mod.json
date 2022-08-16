@@ -18,6 +18,7 @@
     "reinfcoreclient": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"]
   },
   "mixins": ["reinfbarrel.mixins.json"],
+  "accessWidener": "reinfbarrel.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric": "*",
