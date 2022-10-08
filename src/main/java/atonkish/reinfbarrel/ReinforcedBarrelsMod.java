@@ -11,6 +11,7 @@ import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.api.ReinforcedBarrelsModInitializer;
 import atonkish.reinfbarrel.api.ReinforcedBarrelsRegistry;
 import atonkish.reinfbarrel.util.ReinforcingMaterialSettings;
+import atonkish.reinfbarrel.world.poi.ModPointOfInterestType;
 
 public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
 	public static final String MOD_ID = "reinfbarrel";
@@ -28,6 +29,9 @@ public class ReinforcedBarrelsMod implements ReinforcedCoreModInitializer {
 		FabricLoader.getInstance()
 				.getEntrypoints(MOD_ID, ReinforcedBarrelsModInitializer.class)
 				.forEach(ReinforcedBarrelsModInitializer::onInitializeReinforcedBarrels);
+
+		// Point of Interest Types
+		ModPointOfInterestType.init();
 	}
 
 	private static void initializeReinforcedCore() {
