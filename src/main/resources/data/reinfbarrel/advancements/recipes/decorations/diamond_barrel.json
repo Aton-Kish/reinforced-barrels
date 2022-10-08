@@ -1,9 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "rewards": {
-    "recipes": [
-      "reinfbarrel:diamond_barrel"
-    ]
+    "recipes": ["reinfbarrel:diamond_barrel"]
   },
   "criteria": {
     "has_gold_barrel": {
@@ -11,9 +9,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "reinfbarrel:gold_barrel"
-            ]
+            "items": ["reinfbarrel:gold_barrel"]
           }
         ]
       }
@@ -23,9 +19,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:diamond"
-            ]
+            "items": ["minecraft:diamond"]
           }
         ]
       }
@@ -37,11 +31,5 @@
       }
     }
   },
-  "requirements": [
-    [
-      "has_gold_barrel",
-      "has_diamond",
-      "has_the_recipe"
-    ]
-  ]
+  "requirements": [["has_gold_barrel", "has_diamond", "has_the_recipe"]]
 }
