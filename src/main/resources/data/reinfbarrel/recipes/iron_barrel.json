@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "MMM",
-    "MBM",
-    "MMM"
-  ],
+  "pattern": ["MMM", "MBM", "MMM"],
   "key": {
     "B": {
       "item": "reinfbarrel:copper_barrel"

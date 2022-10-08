@@ -4,9 +4,7 @@
   "version": "${version}",
   "name": "Reinforced Barrels",
   "description": "Adds reinforced barrels.",
-  "authors": [
-    "Aton-Kish"
-  ],
+  "authors": ["Aton-Kish"],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/reinforced-barrels",
     "sources": "https://github.com/Aton-Kish/reinforced-barrels",
@@ -16,16 +14,10 @@
   "icon": "assets/reinfbarrel/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "atonkish.reinfbarrel.ReinforcedBarrelsMod"
-    ],
-    "client": [
-      "atonkish.reinfbarrel.ReinforcedBarrelsClientMod"
-    ]
+    "reinfcore": ["atonkish.reinfbarrel.ReinforcedBarrelsMod"],
+    "reinfcoreclient": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"]
   },
-  "mixins": [
-    "reinfbarrel.mixins.json"
-  ],
+  "mixins": ["reinfbarrel.mixins.json"],
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

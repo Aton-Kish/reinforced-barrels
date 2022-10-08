@@ -3,9 +3,7 @@
   "minVersion": "0.8",
   "package": "atonkish.reinfbarrel.mixin",
   "compatibilityLevel": "JAVA_16",
-  "mixins": [
-    "BlockEntityMixin"
-  ],
+  "mixins": ["BlockEntityAccessor"],
   "client": [],
   "injectors": {
     "defaultRequire": 1
