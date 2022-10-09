@@ -15,7 +15,8 @@
   "environment": "*",
   "entrypoints": {
     "reinfcore": ["atonkish.reinfbarrel.ReinforcedBarrelsMod"],
-    "reinfcoreclient": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"]
+    "reinfcoreclient": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"],
+    "modmenu": ["atonkish.reinfcore.integration.modmenu.ModMenu"]
   },
   "mixins": ["reinfbarrel.mixins.json"],
   "accessWidener": "reinfbarrel.accesswidener",
