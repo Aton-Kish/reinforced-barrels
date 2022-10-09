@@ -22,6 +22,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
+import atonkish.reinfbarrel.mixin.BlockEntityAccessor;
 import atonkish.reinfcore.screen.ReinforcedStorageScreenHandler;
 import atonkish.reinfcore.util.ReinforcingMaterial;
 
@@ -31,7 +32,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     public ReinforcedBarrelBlockEntity(ReinforcingMaterial material, BlockPos pos, BlockState state) {
         super(pos, state);
-        ((BlockEntityInterface) this).setType(ModBlockEntityType.REINFORCED_BARREL_MAP.get(material));
+        ((BlockEntityAccessor) this).setType(ModBlockEntityType.REINFORCED_BARREL_MAP.get(material));
         this.setInvStackList(DefaultedList.ofSize(material.getSize(), ItemStack.EMPTY));
         this.stateManager = new ViewerCountManager() {
             protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
@@ -60,20 +61,24 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
         this.cachedMaterial = material;
     }
 
+    @Override
     public int size() {
         return this.cachedMaterial.getSize();
     }
 
+    @Override
     protected Text getContainerName() {
         String namespace = BlockEntityType.getId(this.getType()).getNamespace();
         return new TranslatableText("container." + namespace + "." + this.cachedMaterial.getName() + "Barrel");
     }
 
+    @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return ReinforcedStorageScreenHandler.createSingleBlockScreen(this.cachedMaterial, syncId, playerInventory,
                 this);
     }
 
+    @Override
     public void onOpen(PlayerEntity player) {
         if (!this.removed && !player.isSpectator()) {
             this.stateManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
@@ -81,6 +86,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     }
 
+    @Override
     public void onClose(PlayerEntity player) {
         if (!this.removed && !player.isSpectator()) {
             this.stateManager.closeContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
@@ -88,6 +94,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     }
 
+    @Override
     public void tick() {
         if (!this.removed) {
             this.stateManager.updateViewerCount(this.getWorld(), this.getPos(), this.getCachedState());
