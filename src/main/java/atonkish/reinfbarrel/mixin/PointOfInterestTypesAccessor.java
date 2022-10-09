@@ -2,13 +2,13 @@ package atonkish.reinfbarrel.mixin;
 
 import java.util.Map;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(PointOfInterestTypes.class)
 public interface PointOfInterestTypesAccessor {
