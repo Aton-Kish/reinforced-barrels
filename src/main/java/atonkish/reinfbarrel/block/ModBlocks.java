@@ -4,8 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
 
@@ -19,7 +20,7 @@ public class ModBlocks {
         }
 
         if (!REINFORCED_BARREL_MAP.containsKey(material)) {
-            Block block = register(namespace, material.getName() + "_barrel",
+            Block block = ModBlocks.register(namespace, material.getName() + "_barrel",
                     new ReinforcedBarrelBlock(material, REINFORCED_BARREL_SETTINGS_MAP.get(material)));
             REINFORCED_BARREL_MAP.put(material, block);
         }
@@ -28,6 +29,6 @@ public class ModBlocks {
     }
 
     private static Block register(String namespace, String id, Block block) {
-        return Registry.register(Registry.BLOCK, new Identifier(namespace, id), block);
+        return Registry.register(Registries.BLOCK, new Identifier(namespace, id), block);
     }
 }
