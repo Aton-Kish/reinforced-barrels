@@ -7,9 +7,10 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.block.ModBlocks;
@@ -22,9 +23,10 @@ public class ModBlockEntityType {
         if (!REINFORCED_BARREL_MAP.containsKey(material)) {
             String id = material.getName() + "_barrel";
             FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder = FabricBlockEntityTypeBuilder.create(
-                    createBlockEntityTypeFactory(material),
+                    ModBlockEntityType.createBlockEntityTypeFactory(material),
                     ModBlocks.REINFORCED_BARREL_MAP.get(material));
-            BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = create(namespace, id, builder);
+            BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = ModBlockEntityType.create(namespace, id,
+                    builder);
             REINFORCED_BARREL_MAP.put(material, blockEntityType);
         }
 
@@ -33,7 +35,7 @@ public class ModBlockEntityType {
 
     private static BlockEntityType<ReinforcedBarrelBlockEntity> create(String namespace, String id,
             FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder) {
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(namespace, id),
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(namespace, id),
                 builder.build(null));
     }
 

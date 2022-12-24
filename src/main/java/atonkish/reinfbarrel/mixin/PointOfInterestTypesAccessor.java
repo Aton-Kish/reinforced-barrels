@@ -3,7 +3,7 @@ package atonkish.reinfbarrel.mixin;
 import java.util.Map;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 
