@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "Мідна діжка",
+  "container.reinfbarrel.ironBarrel": "Залізна діжка",
+  "container.reinfbarrel.goldBarrel": "Золота діжка",
+  "container.reinfbarrel.diamondBarrel": "Діамантова діжка",
+  "container.reinfbarrel.netheriteBarrel": "Незеритова діжка",
+  "block.reinfbarrel.copper_barrel": "Мідна діжка",
+  "block.reinfbarrel.iron_barrel": "Залізна діжка",
+  "block.reinfbarrel.gold_barrel": "Золота діжка",
+  "block.reinfbarrel.diamond_barrel": "Діамантова діжка",
+  "block.reinfbarrel.netherite_barrel": "Незеритова діжка",
+  "stat.reinfbarrel.open_copper_barrel": "Мідна діжка відчиняється",
+  "stat.reinfbarrel.open_iron_barrel": "Залізна діжка відчиняється",
+  "stat.reinfbarrel.open_gold_barrel": "Золота діжка відчиняється",
+  "stat.reinfbarrel.open_diamond_barrel": "Діамантова діжка відчиняється",
+  "stat.reinfbarrel.open_netherite_barrel": "Незеритова діжка відчиняється"
+}
