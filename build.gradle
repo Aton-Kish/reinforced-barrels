@@ -50,7 +50,7 @@ dependencies {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/reinfbarrel.accesswidener")
+	accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
 }
 
 processResources {
