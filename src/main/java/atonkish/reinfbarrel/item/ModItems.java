@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -30,6 +31,8 @@ public class ModItems {
             Item item = ModItems.register(
                     new BlockItem(ModBlocks.REINFORCED_BARREL_MAP.get(material),
                             REINFORCED_BARREL_SETTINGS_MAP.get(material)));
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(item));
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(content -> content.add(item));
             ItemGroupEvents.modifyEntriesEvent(ModItemGroups.REINFORCED_STORAGE).register(content -> content.add(item));
             REINFORCED_BARREL_MAP.put(material, item);
         }
@@ -39,7 +42,7 @@ public class ModItems {
 
     public static void registerMaterialItemGroupIcon(ReinforcingMaterial material) {
         Item item = REINFORCED_BARREL_MAP.get(material);
-        ModItemGroup.setIcon(ModItemGroups.REINFORCED_STORAGE, item);
+        ModItemGroup.setIcon(Registries.ITEM_GROUP.get(ModItemGroups.REINFORCED_STORAGE), item);
     }
 
     private static Item register(BlockItem item) {

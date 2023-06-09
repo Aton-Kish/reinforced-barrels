@@ -2,9 +2,10 @@
 
 [![Mod Loader: Fabric](https://img.shields.io/static/v1?label=modloader&message=fabric&color=brightgreen)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 ![Mod Environment](https://img.shields.io/static/v1?label=environment&message=client%2Fserver&color=yellow)
-[![Downloads](https://raw.githubusercontent.com/Aton-Kish/mcmod-stats/main/reinforced-barrels/downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/reinforced-barrels)
+![Version](https://cf.way2muchnoise.eu/versions/529875.svg)
+[![CurseForge](https://cf.way2muchnoise.eu/529875.svg)](https://www.curseforge.com/minecraft/mc-mods/reinforced-barrels)
+[![Modrinth](https://img.shields.io/modrinth/dt/Tx85779b?color=%2300AF5C&logo=modrinth)](https://modrinth.com/mod/reinforced-barrels)
 [![MIT License](https://img.shields.io/static/v1?label=licence&message=MIT&color=blue)](./LICENSE)
-[![build](https://github.com/Aton-Kish/reinforced-barrels/actions/workflows/build.yaml/badge.svg?branch=1.19)](https://github.com/Aton-Kish/reinforced-barrels/actions/workflows/build.yaml?query=branch:1.19)
 
 # Reinforced Barrels
 
