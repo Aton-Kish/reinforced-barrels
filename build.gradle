@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "1.2-SNAPSHOT"
+	id "fabric-loom" version "1.4-SNAPSHOT"
 	id "maven-publish"
 	id "com.matthewprenger.cursegradle" version "1.4.0"
 	id "com.modrinth.minotaur" version "2.+"
@@ -85,7 +85,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
@@ -124,7 +124,9 @@ curseforge {
 
 		addGameVersion "Fabric"
 		addGameVersion "Java 17"
-		addGameVersion "1.20"
+		addGameVersion "1.20.2"
+		addGameVersion "1.20.3"
+		addGameVersion "1.20.4"
 
 		relations {
 			requiredDependency "fabric-api"
@@ -145,7 +147,7 @@ modrinth {
 	versionType = "release"
 	changelog = "[v${project.version}](https://github.com/Aton-Kish/reinforced-barrels/releases/tag/v" + java.net.URLEncoder.encode(project.version, "UTF-8") + ")"
 
-	gameVersions = ["1.20"]
+	gameVersions = ["1.20.2", "1.20.3", "1.20.4"]
 	loaders = ["fabric"]
 
 	dependencies {
