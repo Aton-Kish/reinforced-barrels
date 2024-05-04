@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "구리 통",
+  "container.reinfbarrel.ironBarrel": "철 통",
+  "container.reinfbarrel.goldBarrel": "금 통",
+  "container.reinfbarrel.diamondBarrel": "다이아몬드 통",
+  "container.reinfbarrel.netheriteBarrel": "네더라이트 통",
+  "block.reinfbarrel.copper_barrel": "구리 통",
+  "block.reinfbarrel.iron_barrel": "철 통",
+  "block.reinfbarrel.gold_barrel": "금 통",
+  "block.reinfbarrel.diamond_barrel": "다이아몬드 통",
+  "block.reinfbarrel.netherite_barrel": "네더라이트 통",
+  "stat.reinfbarrel.open_copper_barrel": "구리 통이 열림",
+  "stat.reinfbarrel.open_iron_barrel": "철 통이 열림",
+  "stat.reinfbarrel.open_gold_barrel": "금 통이 열림",
+  "stat.reinfbarrel.open_diamond_barrel": "다이아몬드 통이 열림",
+  "stat.reinfbarrel.open_netherite_barrel": "네더라이트 통이 열림"
+}
