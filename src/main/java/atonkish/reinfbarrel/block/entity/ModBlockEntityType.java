@@ -3,8 +3,6 @@ package atonkish.reinfbarrel.block.entity;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -22,7 +20,7 @@ public class ModBlockEntityType {
             ReinforcingMaterial material) {
         if (!REINFORCED_BARREL_MAP.containsKey(material)) {
             String id = material.getName() + "_barrel";
-            FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder = FabricBlockEntityTypeBuilder.create(
+            BlockEntityType.Builder<ReinforcedBarrelBlockEntity> builder = BlockEntityType.Builder.create(
                     ModBlockEntityType.createBlockEntityTypeFactory(material),
                     ModBlocks.REINFORCED_BARREL_MAP.get(material));
             BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = ModBlockEntityType.create(namespace, id,
@@ -34,12 +32,12 @@ public class ModBlockEntityType {
     }
 
     private static BlockEntityType<ReinforcedBarrelBlockEntity> create(String namespace, String id,
-            FabricBlockEntityTypeBuilder<ReinforcedBarrelBlockEntity> builder) {
+            BlockEntityType.Builder<ReinforcedBarrelBlockEntity> builder) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(namespace, id),
                 builder.build(null));
     }
 
-    private static FabricBlockEntityTypeBuilder.Factory<ReinforcedBarrelBlockEntity> createBlockEntityTypeFactory(
+    private static BlockEntityType.BlockEntityFactory<ReinforcedBarrelBlockEntity> createBlockEntityTypeFactory(
             ReinforcingMaterial material) {
         return (BlockPos blockPos, BlockState blockState) -> new ReinforcedBarrelBlockEntity(material, blockPos,
                 blockState);
