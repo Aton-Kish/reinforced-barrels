@@ -32,7 +32,7 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
     public ReinforcedBarrelBlockEntity(ReinforcingMaterial material, BlockPos pos, BlockState state) {
         super(pos, state);
         ((BlockEntityAccessor) this).setType(ModBlockEntityType.REINFORCED_BARREL_MAP.get(material));
-        this.setInvStackList(DefaultedList.ofSize(material.getSize(), ItemStack.EMPTY));
+        this.setHeldStacks(DefaultedList.ofSize(material.getSize(), ItemStack.EMPTY));
         this.stateManager = new ViewerCountManager() {
             protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
                 ReinforcedBarrelBlockEntity.playSound(world, pos, state, SoundEvents.BLOCK_BARREL_OPEN);
