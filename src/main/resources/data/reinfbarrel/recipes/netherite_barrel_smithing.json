@@ -7,7 +7,8 @@
     "item": "reinfbarrel:diamond_barrel"
   },
   "result": {
-    "item": "reinfbarrel:netherite_barrel"
+    "count": 1,
+    "id": "reinfbarrel:netherite_barrel"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"
