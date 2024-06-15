@@ -113,4 +113,8 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
         world.playSound((PlayerEntity) null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F,
                 world.random.nextFloat() * 0.1F + 0.9F);
     }
+
+    public ReinforcingMaterial getMaterial() {
+        return this.cachedMaterial;
+    }
 }
