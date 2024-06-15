@@ -44,6 +44,28 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+
+	runs {
+		serverTest {
+			server()
+			ideConfigGenerated true
+			name "Minecraft Server Test"
+			vmArg "-Dfabric-api.gametest"
+			vmArg "-Dfabric-api.gametest.report-file=${project.buildDir}/gametest/junit.xml"
+			vmArg "-Datonkish.reinfbarrel.gametest"
+			runDir "build/gametest"
+		}
+
+		clientTest {
+			client()
+			ideConfigGenerated true
+			name "Minecraft Client Test"
+			vmArg "-Datonkish.reinfbarrel.gametest"
+			runDir "build/gametest"
+		}
+	}
+
+	accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
 }
 
 dependencies {
@@ -58,10 +80,6 @@ dependencies {
 	// Reinforced Core
 	modImplementation "atonkish.reinfcore:reinforced-core:${project.reinforced_core_version}"
 	include "atonkish.reinfcore:reinforced-core:${project.reinforced_core_version}"
-}
-
-loom {
-	accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
 }
 
 processResources {
