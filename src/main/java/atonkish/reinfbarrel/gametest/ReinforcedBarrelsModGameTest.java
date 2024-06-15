@@ -11,6 +11,7 @@ import atonkish.reinfbarrel.gametest.testcase.InventoryTests;
 import atonkish.reinfbarrel.gametest.testcase.LootTableTests;
 import atonkish.reinfbarrel.gametest.testcase.OpenTests;
 import atonkish.reinfbarrel.gametest.testcase.PiglinTests;
+import atonkish.reinfbarrel.gametest.testcase.PointOfInterestTests;
 import atonkish.reinfbarrel.gametest.testcase.RecipeTests;
 
 public class ReinforcedBarrelsModGameTest {
@@ -27,6 +28,7 @@ public class ReinforcedBarrelsModGameTest {
         testFunctions.addAll(LootTableTests.TEST_FUNCTIONS);
         testFunctions.addAll(OpenTests.TEST_FUNCTIONS);
         testFunctions.addAll(PiglinTests.TEST_FUNCTIONS);
+        testFunctions.addAll(PointOfInterestTests.TEST_FUNCTIONS);
         testFunctions.addAll(RecipeTests.TEST_FUNCTIONS);
 
         return testFunctions;
