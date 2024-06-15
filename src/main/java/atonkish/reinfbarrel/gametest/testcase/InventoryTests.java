@@ -59,6 +59,7 @@ public class InventoryTests {
                 InventoryTests.class.getSimpleName(),
                 name)
                 .replace(" ", "_");
+
         return new TestFunction(
                 InventoryTests.BATCH_ID,
                 testName,

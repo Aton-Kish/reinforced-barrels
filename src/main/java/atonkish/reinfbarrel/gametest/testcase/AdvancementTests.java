@@ -90,6 +90,7 @@ public class AdvancementTests {
                 AdvancementTests.class.getSimpleName(),
                 name)
                 .replace(" ", "_");
+
         return new TestFunction(
                 AdvancementTests.BATCH_ID,
                 testName,

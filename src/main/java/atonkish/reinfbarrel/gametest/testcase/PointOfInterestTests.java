@@ -58,6 +58,7 @@ public class PointOfInterestTests {
                 PointOfInterestTests.class.getSimpleName(),
                 name)
                 .replace(" ", "_");
+
         return new TestFunction(
                 PointOfInterestTests.BATCH_ID,
                 testName,
