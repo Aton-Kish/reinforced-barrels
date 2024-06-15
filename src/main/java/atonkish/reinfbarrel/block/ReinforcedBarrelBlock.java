@@ -47,4 +47,8 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ReinforcedBarrelBlockEntity(this.material, pos, state);
     }
+
+    public ReinforcingMaterial getMaterial() {
+        return this.material;
+    }
 }

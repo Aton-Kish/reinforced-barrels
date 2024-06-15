@@ -18,7 +18,8 @@
   "environment": "*",
   "entrypoints": {
     "reinfcore": ["atonkish.reinfbarrel.ReinforcedBarrelsMod"],
-    "reinfcoreclient": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"],
+    "reinfcore-client": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"],
+    "reinfcore-gametest": ["atonkish.reinfbarrel.gametest.ReinforcedBarrelsModGameTest"],
     "modmenu": ["atonkish.reinfcore.integration.modmenu.ModMenu"]
   },
   "mixins": ["reinfbarrel.mixins.json"],
