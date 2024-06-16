@@ -36,51 +36,51 @@ public class AdvancementTests {
             add(AdvancementTests.createTest(
                     "Obtain Copper Barrel recipe advancement by having Barrel",
                     Items.BARREL,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/copper_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/copper_barrel")));
             add(AdvancementTests.createTest(
                     "Obtain Copper Barrel recipe advancement by having Copper Ingot",
                     Items.COPPER_INGOT,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/copper_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/copper_barrel")));
 
             // Iron Barrel
             add(AdvancementTests.createTest(
                     "Obtain Iron Barrel recipe advancement by having Copper Barrel",
                     ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("copper")),
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/iron_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/iron_barrel")));
             add(AdvancementTests.createTest(
                     "Obtain Iron Barrel recipe advancement by having Iron Ingot",
                     Items.IRON_INGOT,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/iron_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/iron_barrel")));
 
             // Gold Barrel
             add(AdvancementTests.createTest(
                     "Obtain Gold Barrel recipe advancement by having Iron Barrel",
                     ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("iron")),
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/gold_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/gold_barrel")));
             add(AdvancementTests.createTest(
                     "Obtain Gold Barrel recipe advancement by having Gold Ingot",
                     Items.GOLD_INGOT,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/gold_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/gold_barrel")));
 
             // Diamond Barrel
             add(AdvancementTests.createTest(
                     "Obtain Diamond Barrel recipe advancement by having Gold Barrel",
                     ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("gold")),
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/diamond_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/diamond_barrel")));
             add(AdvancementTests.createTest(
                     "Obtain Diamond Barrel recipe advancement by having Diamond Ingot",
                     Items.DIAMOND,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/diamond_barrel")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/diamond_barrel")));
 
             // Netherite Barrel
             add(AdvancementTests.createTest(
                     "Obtain Netherite Barrel recipe advancement by having Diamond Barrel",
                     ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("diamond")),
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/netherite_barrel_smithing")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/netherite_barrel_smithing")));
             add(AdvancementTests.createTest(
                     "Obtain Netherite Barrel recipe advancement by having Netherite Ingot",
                     Items.NETHERITE_INGOT,
-                    new Identifier(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/netherite_barrel_smithing")));
+                    Identifier.of(ReinforcedBarrelsMod.MOD_ID, "recipes/decorations/netherite_barrel_smithing")));
         }
     };
 
