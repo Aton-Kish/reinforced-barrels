@@ -3,7 +3,11 @@
   "minVersion": "0.8",
   "package": "atonkish.reinfbarrel.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["BlockEntityAccessor", "PointOfInterestTypesAccessor"],
+  "mixins": [
+    "BlockEntityAccessor",
+    "BlockEntityTypeAccessor",
+    "PointOfInterestTypesAccessor"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
