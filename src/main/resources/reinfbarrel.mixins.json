@@ -6,7 +6,10 @@
   "mixins": [
     "BlockEntityAccessor",
     "BlockEntityTypeAccessor",
-    "PointOfInterestTypesAccessor"
+    "PointOfInterestTypesAccessor",
+
+    "datafixer.fix.ItemStackComponentizationFixMixin",
+    "datafixer.schema.Schema1460Mixin"
   ],
   "injectors": {
     "defaultRequire": 1
