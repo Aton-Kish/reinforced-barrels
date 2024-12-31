@@ -1,4 +1,4 @@
-accessWidener v1 named
+accessWidener v2 named
 
 # NOTE: Mixin accessor for Record class does not work well
 #       It seems to need to use access widener
