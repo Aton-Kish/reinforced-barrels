@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -35,7 +36,7 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
             if (blockEntity instanceof BarrelBlockEntity) {
                 player.openHandledScreen((BarrelBlockEntity) blockEntity);
                 player.incrementStat(ModStats.OPEN_REINFORCED_BARREL_MAP.get(this.material));
-                PiglinBrain.onGuardedBlockInteracted(player, true);
+                PiglinBrain.onGuardedBlockInteracted((ServerWorld) world, player, true);
             }
 
             return ActionResult.CONSUME;
