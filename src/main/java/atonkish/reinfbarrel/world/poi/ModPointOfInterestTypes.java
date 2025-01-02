@@ -22,10 +22,10 @@ public class ModPointOfInterestTypes {
         Map<BlockState, RegistryEntry<PointOfInterestType>> poiStatesToType = PointOfInterestTypesAccessor
                 .getPointOfInterestStatesToType();
 
-        RegistryEntry<PointOfInterestType> fishermanEntry = Registries.POINT_OF_INTEREST_TYPE
-                .getEntry(PointOfInterestTypes.FISHERMAN).get();
-
         PointOfInterestType fishermanPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FISHERMAN);
+
+        RegistryEntry<PointOfInterestType> fishermanEntry = Registries.POINT_OF_INTEREST_TYPE
+                .getEntry(fishermanPoiType);
 
         // NOTE: PointOfInterestType.blockStates is accessible by access widener
         List<BlockState> fishermanBlockStates = new ArrayList<BlockState>(fishermanPoiType.blockStates);
