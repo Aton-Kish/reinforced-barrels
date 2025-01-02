@@ -4,16 +4,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
 import atonkish.reinfbarrel.block.ModBlocks;
 import atonkish.reinfbarrel.mixin.BlockEntityTypeAccessor;
+import atonkish.reinfbarrel.mixin.BlockEntityTypeInvoker;
 
 public class ModBlockEntityType {
     public static final Map<ReinforcingMaterial, BlockEntityType<ReinforcedBarrelBlockEntity>> REINFORCED_BARREL_MAP = new LinkedHashMap<>();
@@ -23,27 +20,15 @@ public class ModBlockEntityType {
         if (!REINFORCED_BARREL_MAP.containsKey(material)) {
             String id = material.getName() + "_barrel";
             Block block = ModBlocks.REINFORCED_BARREL_MAP.get(material);
-            BlockEntityType.Builder<ReinforcedBarrelBlockEntity> builder = BlockEntityType.Builder.create(
-                    ModBlockEntityType.createBlockEntityTypeFactory(material), block);
-            BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = ModBlockEntityType.create(
-                    namespace, id, builder);
+            BlockEntityType<ReinforcedBarrelBlockEntity> blockEntityType = BlockEntityTypeInvoker.create(
+                    Identifier.of(namespace, id).toString(),
+                    (blockPos, blockState) -> new ReinforcedBarrelBlockEntity(material, blockPos, blockState),
+                    block);
             REINFORCED_BARREL_MAP.put(material, blockEntityType);
 
             ((BlockEntityTypeAccessor) BlockEntityType.BARREL).getBlocks().add(block);
         }
 
         return REINFORCED_BARREL_MAP.get(material);
-    }
-
-    private static BlockEntityType<ReinforcedBarrelBlockEntity> create(String namespace, String id,
-            BlockEntityType.Builder<ReinforcedBarrelBlockEntity> builder) {
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(namespace, id),
-                builder.build(null));
-    }
-
-    private static BlockEntityType.BlockEntityFactory<ReinforcedBarrelBlockEntity> createBlockEntityTypeFactory(
-            ReinforcingMaterial material) {
-        return (BlockPos blockPos, BlockState blockState) -> new ReinforcedBarrelBlockEntity(material, blockPos,
-                blockState);
     }
 }
