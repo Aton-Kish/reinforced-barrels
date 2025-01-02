@@ -1,13 +1,14 @@
 package atonkish.reinfbarrel;
 
-import net.fabricmc.loader.api.FabricLoader;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.fabricmc.loader.api.FabricLoader;
 
 import atonkish.reinfcore.api.ReinforcedCoreModInitializer;
 import atonkish.reinfcore.api.ReinforcedCoreRegistry;
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
 import atonkish.reinfbarrel.api.ReinforcedBarrelsModInitializer;
 import atonkish.reinfbarrel.api.ReinforcedBarrelsRegistry;
 import atonkish.reinfbarrel.util.ReinforcingMaterialSettings;

@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
 import atonkish.reinfbarrel.block.ModBlocks;
 import atonkish.reinfbarrel.block.entity.ModBlockEntityType;
 import atonkish.reinfbarrel.block.entity.ReinforcedBarrelBlockEntity;

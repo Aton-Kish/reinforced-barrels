@@ -21,9 +21,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
-import atonkish.reinfbarrel.mixin.BlockEntityAccessor;
 import atonkish.reinfcore.screen.ReinforcedStorageScreenHandler;
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
+import atonkish.reinfbarrel.mixin.BlockEntityAccessor;
 
 public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
     private final ViewerCountManager stateManager;

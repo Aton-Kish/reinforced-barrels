@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -15,9 +13,12 @@ import net.minecraft.test.TestFunction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.VillagerProfession;
 
+import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+
+import atonkish.reinfcore.util.ReinforcingMaterials;
+
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.block.ModBlocks;
-import atonkish.reinfcore.util.ReinforcingMaterials;
 
 public class PointOfInterestTests {
     private static final String BATCH_ID = String.format("%s:PointOfInterestBatch",

@@ -3,17 +3,18 @@ package atonkish.reinfbarrel.gametest.testcase;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.test.StructureTestUtil;
 import net.minecraft.test.TestFunction;
 import net.minecraft.util.math.BlockPos;
 
+import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+
+import atonkish.reinfcore.util.ReinforcingMaterials;
+
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.block.ModBlocks;
-import atonkish.reinfcore.util.ReinforcingMaterials;
 
 public class InventoryTests {
     private static final String BATCH_ID = String.format("%s:InventoryBatch",

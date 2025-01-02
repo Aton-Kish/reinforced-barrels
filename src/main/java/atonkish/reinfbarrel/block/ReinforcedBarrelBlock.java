@@ -1,5 +1,7 @@
 package atonkish.reinfbarrel.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.BlockState;
@@ -13,9 +15,8 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import org.jetbrains.annotations.Nullable;
-
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
 import atonkish.reinfbarrel.block.entity.ReinforcedBarrelBlockEntity;
 import atonkish.reinfbarrel.stat.ModStats;
 

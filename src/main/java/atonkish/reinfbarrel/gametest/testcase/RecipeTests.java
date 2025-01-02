@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Recipe;
@@ -19,9 +17,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.test.StructureTestUtil;
 import net.minecraft.test.TestFunction;
 
+import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+
+import atonkish.reinfcore.util.ReinforcingMaterials;
+
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.item.ModItems;
-import atonkish.reinfcore.util.ReinforcingMaterials;
 
 public class RecipeTests {
     private static final String BATCH_ID = String.format("%s:RecipeBatch",
