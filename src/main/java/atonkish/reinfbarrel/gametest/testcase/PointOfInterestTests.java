@@ -75,6 +75,7 @@ public class PointOfInterestTests {
                     // Arrange
                     BlockPos blockPos = BlockPos.ORIGIN;
 
+                    context.setBlockState(blockPos.south(1).down(1), Blocks.STONE);
                     context.setBlockState(blockPos.south(2).up(1), Blocks.BARRIER);
                     context.setBlockState(blockPos.south(1).east(1).up(1), Blocks.BARRIER);
                     context.setBlockState(blockPos.south(1).up(2), Blocks.BARRIER);
