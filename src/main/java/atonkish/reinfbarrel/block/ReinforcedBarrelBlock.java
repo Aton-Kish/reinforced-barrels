@@ -1,5 +1,7 @@
 package atonkish.reinfbarrel.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.BlockState;
@@ -7,14 +9,14 @@ import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import org.jetbrains.annotations.Nullable;
-
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
 import atonkish.reinfbarrel.block.entity.ReinforcedBarrelBlockEntity;
 import atonkish.reinfbarrel.stat.ModStats;
 
@@ -35,7 +37,7 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
             if (blockEntity instanceof BarrelBlockEntity) {
                 player.openHandledScreen((BarrelBlockEntity) blockEntity);
                 player.incrementStat(ModStats.OPEN_REINFORCED_BARREL_MAP.get(this.material));
-                PiglinBrain.onGuardedBlockInteracted(player, true);
+                PiglinBrain.onGuardedBlockInteracted((ServerWorld) world, player, true);
             }
 
             return ActionResult.CONSUME;

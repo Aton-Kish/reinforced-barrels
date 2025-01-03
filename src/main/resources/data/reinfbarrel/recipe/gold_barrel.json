@@ -3,12 +3,8 @@
   "category": "misc",
   "pattern": ["MMM", "MBM", "MMM"],
   "key": {
-    "B": {
-      "item": "reinfbarrel:iron_barrel"
-    },
-    "M": {
-      "item": "minecraft:gold_ingot"
-    }
+    "B": "reinfbarrel:iron_barrel",
+    "M": "minecraft:gold_ingot"
   },
   "result": {
     "count": 1,

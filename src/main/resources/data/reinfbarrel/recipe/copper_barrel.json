@@ -3,12 +3,8 @@
   "category": "misc",
   "pattern": ["MMM", "MBM", "MMM"],
   "key": {
-    "B": {
-      "item": "minecraft:barrel"
-    },
-    "M": {
-      "item": "minecraft:copper_ingot"
-    }
+    "B": "minecraft:barrel",
+    "M": "minecraft:copper_ingot"
   },
   "result": {
     "count": 1,

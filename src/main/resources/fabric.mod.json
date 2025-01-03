@@ -19,15 +19,17 @@
   "entrypoints": {
     "reinfcore": ["atonkish.reinfbarrel.ReinforcedBarrelsMod"],
     "reinfcore-client": ["atonkish.reinfbarrel.ReinforcedBarrelsClientMod"],
-    "reinfcore-gametest": ["atonkish.reinfbarrel.gametest.ReinforcedBarrelsModGameTest"],
+    "reinfcore-gametest": [
+      "atonkish.reinfbarrel.gametest.ReinforcedBarrelsModGameTest"
+    ],
     "modmenu": ["atonkish.reinfcore.integration.modmenu.ModMenu"]
   },
   "mixins": ["reinfbarrel.mixins.json"],
   "accessWidener": "reinfbarrel.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.15.11",
-    "minecraft": "~1.21",
+    "fabricloader": ">=0.16.7",
+    "minecraft": "~1.21.2",
     "java": ">=21",
     "fabric-api": "*"
   },

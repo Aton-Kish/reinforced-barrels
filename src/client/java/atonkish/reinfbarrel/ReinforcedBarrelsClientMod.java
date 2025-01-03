@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import atonkish.reinfcore.api.ReinforcedCoreClientModInitializer;
 import atonkish.reinfcore.api.ReinforcedCoreClientRegistry;
 import atonkish.reinfcore.util.ReinforcingMaterial;
+
 import atonkish.reinfbarrel.util.ReinforcingMaterialSettings;
 
 @Environment(EnvType.CLIENT)
