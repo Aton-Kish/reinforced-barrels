@@ -14,19 +14,21 @@ import net.minecraft.recipe.input.RecipeInput;
 import net.minecraft.recipe.input.SmithingRecipeInput;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.test.StructureTestUtil;
-import net.minecraft.test.TestFunction;
+import net.minecraft.text.Text;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Identifier;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
+import atonkish.reinfcore.gametest.TestFunction;
 import atonkish.reinfcore.util.ReinforcingMaterials;
 
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
+import atonkish.reinfbarrel.gametest.util.TestIdentifier;
 import atonkish.reinfbarrel.item.ModItems;
 
 public class RecipeTests {
-    private static final String BATCH_ID = String.format("%s:RecipeBatch",
+    private static final String TEST_ENVIRONMENT_DEFAULT = String.format("%s:recipe/default",
             ReinforcedBarrelsMod.MOD_ID);
+    private static final String TEST_STRUCTURE_EMPTY = "fabric-gametest-api-v1:empty";
 
     public static final Collection<TestFunction> TEST_FUNCTIONS = new ArrayList<>() {
         {
@@ -34,8 +36,8 @@ public class RecipeTests {
             {
                 ItemStack baseBarrel = new ItemStack(Items.BARREL);
                 ItemStack material = new ItemStack(Items.COPPER_INGOT);
-                ItemStack barrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("copper")));
+                ItemStack barrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("copper")));
 
                 add(RecipeTests.createTest(
                         "Craft Copper Barrel",
@@ -49,11 +51,11 @@ public class RecipeTests {
 
             // Iron Barrel
             {
-                ItemStack baseBarrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("copper")));
+                ItemStack baseBarrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("copper")));
                 ItemStack material = new ItemStack(Items.IRON_INGOT);
-                ItemStack barrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("iron")));
+                ItemStack barrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("iron")));
 
                 add(RecipeTests.createTest(
                         "Craft Iron Barrel",
@@ -67,11 +69,11 @@ public class RecipeTests {
 
             // Gold Barrel
             {
-                ItemStack baseBarrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("iron")));
+                ItemStack baseBarrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("iron")));
                 ItemStack material = new ItemStack(Items.GOLD_INGOT);
-                ItemStack barrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("gold")));
+                ItemStack barrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("gold")));
 
                 add(RecipeTests.createTest(
                         "Craft Gold Barrel",
@@ -85,11 +87,11 @@ public class RecipeTests {
 
             // Diamond Barrel
             {
-                ItemStack baseBarrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("gold")));
+                ItemStack baseBarrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("gold")));
                 ItemStack material = new ItemStack(Items.DIAMOND);
-                ItemStack barrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("diamond")));
+                ItemStack barrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("diamond")));
 
                 add(RecipeTests.createTest(
                         "Craft Diamond Barrel",
@@ -104,11 +106,11 @@ public class RecipeTests {
             // Netherite Barrel
             {
                 ItemStack template = new ItemStack(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
-                ItemStack baseBarrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("diamond")));
+                ItemStack baseBarrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("diamond")));
                 ItemStack material = new ItemStack(Items.NETHERITE_INGOT);
-                ItemStack barrel = new ItemStack(
-                        ModItems.REINFORCED_BARREL_MAP.get(ReinforcingMaterials.MAP.get("netherite")));
+                ItemStack barrel = new ItemStack(ModItems.REINFORCED_BARREL_MAP
+                        .get(ReinforcingMaterials.MAP.get("netherite")));
 
                 add(RecipeTests.createTest(
                         "Smithing Netherite Barrel",
@@ -121,20 +123,18 @@ public class RecipeTests {
 
     private static <I extends RecipeInput, T extends Recipe<I>> TestFunction createTest(String name,
             RecipeType<T> type, I input, ItemStack expected) {
-        String testName = String.format("%s %s %s",
-                ReinforcedBarrelsMod.MOD_ID,
-                RecipeTests.class.getSimpleName(),
-                name)
-                .replace(" ", "_");
+        Identifier testIdentifier = TestIdentifier.of(ReinforcedBarrelsMod.MOD_ID,
+                RecipeTests.class,
+                name);
 
         return new TestFunction(
-                RecipeTests.BATCH_ID,
-                testName,
-                FabricGameTest.EMPTY_STRUCTURE,
-                StructureTestUtil.getRotation(0),
-                100,
-                0L,
+                testIdentifier,
+                RecipeTests.TEST_ENVIRONMENT_DEFAULT,
+                RecipeTests.TEST_STRUCTURE_EMPTY,
+                20,
+                0,
                 true,
+                BlockRotation.NONE,
                 false,
                 1,
                 1,
@@ -152,9 +152,9 @@ public class RecipeTests {
                     // Assert
                     try {
                         context.assertTrue(ItemStack.areEqual(actual, expected),
-                                "Recipe result differs from expected.");
+                                Text.of("Recipe result differs from expected."));
                     } catch (Exception e) {
-                        ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testName, e.getMessage());
+                        ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testIdentifier, e.getMessage());
                         throw e;
                     }
 

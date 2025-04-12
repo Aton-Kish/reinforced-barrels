@@ -8,21 +8,23 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.test.StructureTestUtil;
-import net.minecraft.test.TestFunction;
+import net.minecraft.text.Text;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.VillagerProfession;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
+import atonkish.reinfcore.gametest.TestFunction;
 import atonkish.reinfcore.util.ReinforcingMaterials;
 
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.block.ModBlocks;
+import atonkish.reinfbarrel.gametest.util.TestIdentifier;
 
 public class PointOfInterestTests {
-    private static final String BATCH_ID = String.format("%s:PointOfInterestBatch",
+    private static final String TEST_ENVIRONMENT_DEFAULT = String.format("%s:point_of_interest/default",
             ReinforcedBarrelsMod.MOD_ID);
+    private static final String TEST_STRUCTURE_EMPTY = "fabric-gametest-api-v1:empty";
 
     public static final Collection<TestFunction> TEST_FUNCTIONS = new ArrayList<>() {
         {
@@ -54,20 +56,18 @@ public class PointOfInterestTests {
     };
 
     private static TestFunction createTest(String name, Block barrelBlock) {
-        String testName = String.format("%s %s %s",
-                ReinforcedBarrelsMod.MOD_ID,
-                PointOfInterestTests.class.getSimpleName(),
-                name)
-                .replace(" ", "_");
+        Identifier testIdentifier = TestIdentifier.of(ReinforcedBarrelsMod.MOD_ID,
+                PointOfInterestTests.class,
+                name);
 
         return new TestFunction(
-                PointOfInterestTests.BATCH_ID,
-                testName,
-                FabricGameTest.EMPTY_STRUCTURE,
-                StructureTestUtil.getRotation(0),
+                testIdentifier,
+                PointOfInterestTests.TEST_ENVIRONMENT_DEFAULT,
+                PointOfInterestTests.TEST_STRUCTURE_EMPTY,
                 100,
-                0L,
-                false,
+                0,
+                true,
+                BlockRotation.NONE,
                 false,
                 1,
                 1,
@@ -76,7 +76,6 @@ public class PointOfInterestTests {
                     // Arrange
                     BlockPos blockPos = BlockPos.ORIGIN;
 
-                    context.setBlockState(blockPos.south(1).down(1), Blocks.STONE);
                     context.setBlockState(blockPos.south(2).up(1), Blocks.BARRIER);
                     context.setBlockState(blockPos.south(1).east(1).up(1), Blocks.BARRIER);
                     context.setBlockState(blockPos.south(1).up(2), Blocks.BARRIER);
@@ -102,11 +101,11 @@ public class PointOfInterestTests {
                     // Assert
                     CompletableFuture.allOf(futurePartialAct1, futurePartialAct2).thenRun(() -> {
                         try {
-                            context.assertEquals(villager.getVillagerData().getProfession(),
+                            context.assertEquals(villager.getVillagerData().profession().getKey().orElse(null),
                                     VillagerProfession.FISHERMAN,
-                                    "villager profession");
+                                    Text.of("villager profession"));
                         } catch (Exception e) {
-                            ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testName, e.getMessage());
+                            ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testIdentifier, e.getMessage());
                             throw e;
                         }
 

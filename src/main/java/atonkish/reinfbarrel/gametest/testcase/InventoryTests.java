@@ -5,20 +5,22 @@ import java.util.Collection;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BarrelBlockEntity;
-import net.minecraft.test.StructureTestUtil;
-import net.minecraft.test.TestFunction;
+import net.minecraft.text.Text;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-
+import atonkish.reinfcore.gametest.TestFunction;
 import atonkish.reinfcore.util.ReinforcingMaterials;
 
 import atonkish.reinfbarrel.ReinforcedBarrelsMod;
 import atonkish.reinfbarrel.block.ModBlocks;
+import atonkish.reinfbarrel.gametest.util.TestIdentifier;
 
 public class InventoryTests {
-    private static final String BATCH_ID = String.format("%s:InventoryBatch",
+    private static final String TEST_ENVIRONMENT_DEFAULT = String.format("%s:inventory/default",
             ReinforcedBarrelsMod.MOD_ID);
+    private static final String TEST_STRUCTURE_EMPTY = "fabric-gametest-api-v1:empty";
 
     public static final Collection<TestFunction> TEST_FUNCTIONS = new ArrayList<>() {
         {
@@ -55,20 +57,18 @@ public class InventoryTests {
     };
 
     private static TestFunction createTest(String name, Block barrelBlock, int size) {
-        String testName = String.format("%s %s %s",
-                ReinforcedBarrelsMod.MOD_ID,
-                InventoryTests.class.getSimpleName(),
-                name)
-                .replace(" ", "_");
+        Identifier testIdentifier = TestIdentifier.of(ReinforcedBarrelsMod.MOD_ID,
+                InventoryTests.class,
+                name);
 
         return new TestFunction(
-                InventoryTests.BATCH_ID,
-                testName,
-                FabricGameTest.EMPTY_STRUCTURE,
-                StructureTestUtil.getRotation(0),
-                100,
-                0L,
+                testIdentifier,
+                InventoryTests.TEST_ENVIRONMENT_DEFAULT,
+                InventoryTests.TEST_STRUCTURE_EMPTY,
+                20,
+                0,
                 true,
+                BlockRotation.NONE,
                 false,
                 1,
                 1,
@@ -79,14 +79,14 @@ public class InventoryTests {
                     context.setBlockState(blockPos, barrelBlock);
 
                     // Act
-                    BarrelBlockEntity entity = (BarrelBlockEntity) context.getBlockEntity(blockPos);
+                    BarrelBlockEntity entity = context.getBlockEntity(blockPos, BarrelBlockEntity.class);
 
                     // Assert
                     try {
                         context.assertEquals(entity.size(), size,
-                                String.format("%s inventory size", barrelBlock.getName().getString()));
+                                Text.of(String.format("%s inventory size", barrelBlock.getName().getString())));
                     } catch (Exception e) {
-                        ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testName, e.getMessage());
+                        ReinforcedBarrelsMod.LOGGER.error("[{}] {}", testIdentifier, e.getMessage());
                         throw e;
                     }
 
