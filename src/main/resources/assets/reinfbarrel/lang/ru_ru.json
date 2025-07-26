@@ -1,0 +1,17 @@
+{
+  "container.reinfbarrel.copperBarrel": "Медная бочка",
+  "container.reinfbarrel.ironBarrel": "Железная бочка",
+  "container.reinfbarrel.goldBarrel": "Золотая бочка",
+  "container.reinfbarrel.diamondBarrel": "Алмазная бочка",
+  "container.reinfbarrel.netheriteBarrel": "Незеритовая бочка",
+  "block.reinfbarrel.copper_barrel": "Медная бочка",
+  "block.reinfbarrel.iron_barrel": "Железная бочка",
+  "block.reinfbarrel.gold_barrel": "Золотая бочка",
+  "block.reinfbarrel.diamond_barrel": "Алмазная бочка",
+  "block.reinfbarrel.netherite_barrel": "Незеритовая бочка",
+  "stat.reinfbarrel.open_copper_barrel": "Открыто медных бочек",
+  "stat.reinfbarrel.open_iron_barrel": "Открыто железных бочек",
+  "stat.reinfbarrel.open_gold_barrel": "Открыто золотых бочек",
+  "stat.reinfbarrel.open_diamond_barrel": "Открыто алмазных бочек",
+  "stat.reinfbarrel.open_netherite_barrel": "Открыто незеритовых бочек"
+}
