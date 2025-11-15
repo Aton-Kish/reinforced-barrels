@@ -30,18 +30,14 @@ public class ReinforcedBarrelBlock extends BarrelBlock {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
-        } else {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof BarrelBlockEntity) {
-                player.openHandledScreen((BarrelBlockEntity) blockEntity);
-                player.incrementStat(ModStats.OPEN_REINFORCED_BARREL_MAP.get(this.material));
-                PiglinBrain.onGuardedBlockInteracted((ServerWorld) world, player, true);
-            }
-
-            return ActionResult.CONSUME;
+        if (world instanceof ServerWorld serverWorld
+                && world.getBlockEntity(pos) instanceof BarrelBlockEntity barrelBlockEntity) {
+            player.openHandledScreen(barrelBlockEntity);
+            player.incrementStat(ModStats.OPEN_REINFORCED_BARREL_MAP.get(this.material));
+            PiglinBrain.onGuardedBlockInteracted(serverWorld, player, true);
         }
+
+        return ActionResult.SUCCESS;
     }
 
     @Override
