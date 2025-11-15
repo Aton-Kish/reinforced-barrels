@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ViewerCountManager;
+import net.minecraft.entity.ContainerUser;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -35,21 +36,25 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
         ((BlockEntityAccessor) this).setType(ModBlockEntityType.REINFORCED_BARREL_MAP.get(material));
         this.setHeldStacks(DefaultedList.ofSize(material.getSize(), ItemStack.EMPTY));
         this.stateManager = new ViewerCountManager() {
+            @Override
             protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
-                ReinforcedBarrelBlockEntity.playSound(world, pos, state, SoundEvents.BLOCK_BARREL_OPEN);
-                ReinforcedBarrelBlockEntity.setOpen(world, pos, state, true);
+                ReinforcedBarrelBlockEntity.this.playSound(state, SoundEvents.BLOCK_BARREL_OPEN);
+                ReinforcedBarrelBlockEntity.this.setOpen(state, true);
             }
 
+            @Override
             protected void onContainerClose(World world, BlockPos pos, BlockState state) {
-                ReinforcedBarrelBlockEntity.playSound(world, pos, state, SoundEvents.BLOCK_BARREL_CLOSE);
-                ReinforcedBarrelBlockEntity.setOpen(world, pos, state, false);
+                ReinforcedBarrelBlockEntity.this.playSound(state, SoundEvents.BLOCK_BARREL_CLOSE);
+                ReinforcedBarrelBlockEntity.this.setOpen(state, false);
             }
 
+            @Override
             protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount,
                     int newViewerCount) {
             }
 
-            protected boolean isPlayerViewing(PlayerEntity player) {
+            @Override
+            public boolean isPlayerViewing(PlayerEntity player) {
                 if (player.currentScreenHandler instanceof ReinforcedStorageScreenHandler) {
                     Inventory inventory = ((ReinforcedStorageScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == ReinforcedBarrelBlockEntity.this;
@@ -79,17 +84,19 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
     }
 
     @Override
-    public void onOpen(PlayerEntity player) {
-        if (!this.removed && !player.isSpectator()) {
-            this.stateManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
+    public void onOpen(ContainerUser user) {
+        if (!this.removed && !user.asLivingEntity().isSpectator()) {
+            this.stateManager.openContainer(user.asLivingEntity(), this.getWorld(), this.getPos(),
+                    this.getCachedState(), user.getContainerInteractionRange());
         }
 
     }
 
     @Override
-    public void onClose(PlayerEntity player) {
-        if (!this.removed && !player.isSpectator()) {
-            this.stateManager.closeContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
+    public void onClose(ContainerUser user) {
+        if (!this.removed && !user.asLivingEntity().isSpectator()) {
+            this.stateManager.closeContainer(user.asLivingEntity(), this.getWorld(), this.getPos(),
+                    this.getCachedState());
         }
 
     }
@@ -102,17 +109,17 @@ public class ReinforcedBarrelBlockEntity extends BarrelBlockEntity {
 
     }
 
-    private static void setOpen(World world, BlockPos pos, BlockState state, boolean open) {
-        world.setBlockState(pos, state.with(BarrelBlock.OPEN, open), Block.NOTIFY_ALL);
+    private void setOpen(BlockState state, boolean open) {
+        this.world.setBlockState(this.getPos(), state.with(BarrelBlock.OPEN, open), Block.NOTIFY_ALL);
     }
 
-    private static void playSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent) {
+    private void playSound(BlockState state, SoundEvent soundEvent) {
         Vec3i vec3i = ((Direction) state.get(BarrelBlock.FACING)).getVector();
-        double d = (double) pos.getX() + 0.5D + (double) vec3i.getX() / 2.0D;
-        double e = (double) pos.getY() + 0.5D + (double) vec3i.getY() / 2.0D;
-        double f = (double) pos.getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
-        world.playSound((PlayerEntity) null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F,
-                world.random.nextFloat() * 0.1F + 0.9F);
+        double d = (double) this.pos.getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+        double e = (double) this.pos.getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+        double f = (double) this.pos.getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+        this.world.playSound((PlayerEntity) null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F,
+                this.world.random.nextFloat() * 0.1F + 0.9F);
     }
 
     public ReinforcingMaterial getMaterial() {
