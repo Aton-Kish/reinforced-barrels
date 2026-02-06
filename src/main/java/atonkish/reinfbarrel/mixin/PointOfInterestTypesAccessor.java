@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(PointOfInterestTypes.class)
 public interface PointOfInterestTypesAccessor {
-    @Accessor("POI_STATES_TO_TYPE")
-    static Map<BlockState, RegistryEntry<PointOfInterestType>> getPointOfInterestStatesToType() {
-        throw new UnsupportedOperationException();
-    }
+  @Accessor("POI_STATES_TO_TYPE")
+  static Map<BlockState, RegistryEntry<PointOfInterestType>> getPointOfInterestStatesToType() {
+    throw new UnsupportedOperationException();
+  }
 }
